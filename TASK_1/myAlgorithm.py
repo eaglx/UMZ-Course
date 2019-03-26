@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# ./myAlgorithm.py train/train.tsv dev-0/in.tsv dev-0/out.tsv
+
 import numpy as np
 import sys
 
@@ -46,7 +48,7 @@ def gd(h, costfun, theta, x, y, alpha, eps):
     current_cost = costfun(h, theta, x, y)
     log = [[current_cost, theta]]
     m = len(y)
-    max_itern = 500000
+    max_itern = 1200000
     count_itern = 0
     while True:
         count_itern += 1
@@ -72,7 +74,7 @@ def gd(h, costfun, theta, x, y, alpha, eps):
     return log
 # ********************************************
 
-# Funkcja sterójąca
+# Funkcja sterująca
 def main():
     print("ALGORITHM-TASK-SOLVER")
     loadTrainDataToProcessing = load_train_data(sys.argv[1])
@@ -85,7 +87,7 @@ def main():
     print("> SAVE OUT")
     with open(sys.argv[3], "w") as f:
         for i in loadTrainDataToProcessing:
-            f.write(str(h(bestTheta, i)) + "\n")
+            f.write(str(int(h(bestTheta, i))) + "\n")
 
 if __name__ == "__main__":
     main()

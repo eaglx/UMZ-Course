@@ -34,7 +34,7 @@ x_in['Embarked'] = x_in['Embarked'].replace('S',1)
 x_in['Embarked'] = x_in['Embarked'].replace('Q',2)
 x_in['Embarked'] = x_in['Embarked'].replace('C',3)
 
-neural = MLPClassifier()
+neural = MLPClassifier() # Changed
 neural.fit(x, y)
 test_out = neural.predict(x_in)
 # ***************** SAVE *****************
